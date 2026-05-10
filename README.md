@@ -196,6 +196,8 @@ SQLiHunter integrates with multiple AI providers for professional report generat
 | Claude | https://api.anthropic.com | claude-3-haiku-20240307 |
 
 ## SQLiHunter Visual Architecture
+
+```text
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                          Burp Suite Professional                            │
 │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────┐ │
@@ -336,6 +338,7 @@ SQLiHunter integrates with multiple AI providers for professional report generat
 │  │  └─────────────────────────────────────────────────────────────────┘  │  │
 │  └───────────────────────────────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────────────────────────┘
+```
 
 ## Installation Guide
 ### Prerequisites
