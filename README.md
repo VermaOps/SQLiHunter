@@ -212,19 +212,19 @@ SQLiHunter integrates with multiple AI providers for professional report generat
 │                                                                             │
 │  ┌───────────────────────────────────────────────────────────────────────┐  │
 │  │                         Traffic Capture Layer                         │  │
-│  │  ┌─────────────────────┐      ┌─────────────────────────────────┐    │  │
-│  │  │ ProxyResponseHigh-  │      │   RepeaterCaptureHandler        │    │  │
-│  │  │ lighter             │      │   (HttpHandler)                  │    │  │
-│  │  │ (ProxyResponse      │      │   - Filters Repeater traffic     │    │  │
-│  │  │  Handler)           │      │   - Captures raw bytes           │    │  │
-│  │  │ - Monitors Proxy    │      │   - Respects scope/path filters  │    │  │
-│  │  │ - Highlights SQL    │      └───────────────┬─────────────────┘    │  │
+│  │  ┌─────────────────────┐      ┌─────────────────────────────────┐     │  │
+│  │  │ ProxyResponseHigh-  │      │   RepeaterCaptureHandler        │     │  │
+│  │  │ lighter             │      │   (HttpHandler)                 │     │  │
+│  │  │ (ProxyResponse      │      │   - Filters Repeater traffic    │     │  │
+│  │  │  Handler)           │      │   - Captures raw bytes          │     │  │
+│  │  │ - Monitors Proxy    │      │   - Respects scope/path filters │     │  │
+│  │  │ - Highlights SQL    │      └───────────────┬─────────────────┘     │  │
 │  │  │   errors            │                      │                       │  │
 │  │  └─────────┬───────────┘                      │                       │  │
 │  └────────────┼──────────────────────────────────┼───────────────────────┘  │
-│               │                                  │                           │
-│               └──────────────┬───────────────────┘                           │
-│                              ▼                                               │
+│               │                                  │                          │
+│               └──────────────┬───────────────────┘                          │
+│                              ▼                                              │
 │  ┌───────────────────────────────────────────────────────────────────────┐  │
 │  │                      ApiTrafficModel (Thread-safe Store)              │  │
 │  │  ┌─────────────────────────────────────────────────────────────────┐  │  │
@@ -238,44 +238,44 @@ SQLiHunter integrates with multiple AI providers for professional report generat
 │          ┌───────────────────────┼───────────────────────┐                  │
 │          │                       │                       │                  │
 │          ▼                       ▼                       ▼                  │
-│  ┌───────────────┐      ┌────────────────┐      ┌────────────────┐         │
-│  │ ApiTraffic    │      │  ScanEngine    │      │ ResultsModel   │         │
-│  │ Panel (UI)    │      │  (Async)       │      │ (Thread-safe)  │         │
-│  │               │      │                │      │                │         │
-│  │ - JTable with │      │ ┌────────────┐ │      │ - CopyOnWrite- │         │
-│  │   Traffic     │      │ │ Parameter  │ │      │   ArrayList    │         │
-│  │ - Burp Native │◄─────│ │ Extractor  │ │      │ - Filter by    │         │
-│  │   Editors     │      │ └─────┬──────┘ │      │   trafficId    │         │
-│  │ - Method      │      │       │        │      │ - Listener     │         │
-│  │   Filtering   │      │ ┌─────▼──────┐ │      │   pattern      │         │
-│  │ - Auto-scan   │      │ │ Payload    │ │      └───────┬────────┘         │
-│  │   trigger     │      │ │ Builder    │ │              │                  │
-│  └───────────────┘      │ └─────┬──────┘ │              │                  │
-│                         │       │        │              │                  │
-│                         │ ┌─────▼──────┐ │              │                  │
-│                         │ │ Request    │ │              │                  │
-│                         │ │ Mutator    │ │              │                  │
-│                         │ └─────┬──────┘ │              │                  │
-│                         │       │        │              │                  │
-│                         │ ┌─────▼──────┐ │              │                  │
-│                         │ │ Response   │ │              │                  │
-│                         │ │ Analyzer   │ │              │                  │
-│                         │ └───────────┘ │              │                  │
-│                         └───────┬────────┘              │                  │
-│                                 │                       │                  │
-│                                 ▼                       ▼                  │
-│                         ┌────────────────────────────────────┐             │
-│                         │         ScanFinding                │             │
-│                         │  - url, method, paramName          │             │
-│                         │  - payloadUsed, payloadType        │             │
-│                         │  - confidenceScore (0-100)         │             │
-│                         │  - severity (HIGH/MEDIUM/LOW/INFO) │             │
-│                         │  - rawRequest/rawResponse          │             │
-│                         │  - evidenceSummary                 │             │
-│                         └────────────────────────────────────┘             │
+│  ┌───────────────┐      ┌────────────────┐      ┌────────────────┐          │
+│  │ ApiTraffic    │      │  ScanEngine    │      │ ResultsModel   │          │
+│  │ Panel (UI)    │      │  (Async)       │      │ (Thread-safe)  │          │
+│  │               │      │                │      │                │          │
+│  │ - JTable with │      │ ┌────────────┐ │      │ - CopyOnWrite- │          │
+│  │   Traffic     │      │ │ Parameter  │ │      │   ArrayList    │          │
+│  │ - Burp Native │◄─────│ │ Extractor  │ │      │ - Filter by    │          │
+│  │   Editors     │      │ └─────┬──────┘ │      │   trafficId    │          │
+│  │ - Method      │      │       │        │      │ - Listener     │          │
+│  │   Filtering   │      │ ┌─────▼──────┐ │      │   pattern      │          │
+│  │ - Auto-scan   │      │ │ Payload    │ │      └───────┬────────┘          │
+│  │   trigger     │      │ │ Builder    │ │              │                   │
+│  └───────────────┘      │ └─────┬──────┘ │              │                   │
+│                         │       │        │              │                   │
+│                         │ ┌─────▼──────┐ │              │                   │
+│                         │ │ Request    │ │              │                   │
+│                         │ │ Mutator    │ │              │                   │
+│                         │ └─────┬──────┘ │              │                   │
+│                         │       │        │              │                   │
+│                         │ ┌─────▼──────┐ │              │                   │
+│                         │ │ Response   │ │              │                   │
+│                         │ │ Analyzer   │ │              │                   │
+│                         │ └───────────┘ │               │                   │
+│                         └───────┬────────┘              │                   │
+│                                 │                       │                   │
+│                                 ▼                       ▼                   │
+│                         ┌────────────────────────────────────┐              │
+│                         │         ScanFinding                │              │
+│                         │  - url, method, paramName          │              │
+│                         │  - payloadUsed, payloadType        │              │
+│                         │  - confidenceScore (0-100)         │              │
+│                         │  - severity (HIGH/MEDIUM/LOW/INFO) │              │
+│                         │  - rawRequest/rawResponse          │              │
+│                         │  - evidenceSummary                 │              │
+│                         └────────────────────────────────────┘              │
 │                                                                             │
 │  ┌───────────────────────────────────────────────────────────────────────┐  │
-│  │                           UI Layer                                     │  │
+│  │                           UI Layer                                    │  │
 │  │  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────────┐    │  │
 │  │  │   ResultsPanel  │  │  SettingsPanel  │  │    MainTab          │    │  │
 │  │  │                 │  │                 │  │                     │    │  │
@@ -294,12 +294,12 @@ SQLiHunter integrates with multiple AI providers for professional report generat
 │  │  │ │ - Ask AI    │ │  │ │ - Targets   │ │  │ ┌─────────────────┐ │    │  │
 │  │  │ └─────────────┘ │  │ │ - Methods   │ │  │ │ Help Tab        │ │    │  │
 │  │  └────────┬────────┘  │ └─────────────┘ │  │ └─────────────────┘ │    │  │
-│  └───────────┼──────────────────────────────┘  └─────────────────────┘    │  │
-│              │                                                            │  │
-│              ▼                                                            │  │
+│  └───────────┼─────────────────────────────┘  └─────────────────────┘    │  │
+│              │                                                           │  │
+│              ▼                                                           │  │
 │  ┌───────────────────────────────────────────────────────────────────────┐  │
 │  │                          AI Provider Layer                            │  │
-│  │                                                                        │  │
+│  │                                                                       │  │
 │  │  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐                │  │
 │  │  │  Ollama     │    │   OpenAI    │    │   Claude    │                │  │
 │  │  │  Provider   │    │  Provider   │    │  Provider   │                │  │
@@ -324,17 +324,17 @@ SQLiHunter integrates with multiple AI providers for professional report generat
                                      │
                                      ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                          Large Language Model                                │
+│                          Large Language Model                               │
 │  ┌───────────────────────────────────────────────────────────────────────┐  │
-│  │  Ollama: qwen2.5-coder:7b, llama2, mistral, etc.                     │  │
-│  │  OpenAI: gpt-3.5-turbo, gpt-4, gpt-4o                                │  │
-│  │  Claude: claude-3-haiku, claude-3-sonnet, claude-3-opus              │  │
-│  │                                                                        │  │
+│  │  Ollama: qwen2.5-coder:7b, llama2, mistral, etc.                      │  │
+│  │  OpenAI: gpt-3.5-turbo, gpt-4, gpt-4o                                 │  │
+│  │  Claude: claude-3-haiku, claude-3-sonnet, claude-3-opus               │  │
+│  │                                                                       │  │
 │  │  ┌─────────────────────────────────────────────────────────────────┐  │  │
-│  │  │  ✓ Professional vulnerability report generation                │  │  │
-│  │  │  ✓ Bug bounty style write-ups                                   │  │  │
-│  │  │  ✓ Remediation recommendations                                  │  │  │
-│  │  │  ✓ Multi-turn analysis with context retention                   │  │  │
+│  │  │  Professional vulnerability report generation                   │  │  │
+│  │  │  Bug bounty style write-ups                                     │  │  │
+│  │  │  Remediation recommendations                                    │  │  │
+│  │  │  Multi-turn analysis with context retention                     │  │  │
 │  │  └─────────────────────────────────────────────────────────────────┘  │  │
 │  └───────────────────────────────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────────────────────────┘
