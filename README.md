@@ -208,7 +208,7 @@ SQLiHunter integrates with multiple AI providers for professional report generat
           │                │                                       │
           ▼                ▼                                       ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                        SQLiHunter Extension v1.0.0                          │
+│                        SQLiHunter Extension                                 │
 │                                                                             │
 │  ┌───────────────────────────────────────────────────────────────────────┐  │
 │  │                         Traffic Capture Layer                         │  │
