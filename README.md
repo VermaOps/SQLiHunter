@@ -1,0 +1,2 @@
+# SQLiHunter
+in closed beta
