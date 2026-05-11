@@ -440,7 +440,7 @@ chmod +x build.sh
 | | | |
 |:---:|:---:|:---:|
 |<img width="2940" height="1704" alt="Screenshot 2026-05-11 at 12 28 54 PM" src="https://github.com/user-attachments/assets/c3c972f2-7440-4e2e-adec-c19357e630d8" />|<img width="2940" height="1694" alt="Screenshot 2026-05-11 at 12 29 27 PM" src="https://github.com/user-attachments/assets/1935159f-630f-4340-a024-a15f4d40e8cb" />|<img width="2940" height="1696" alt="Screenshot 2026-05-11 at 12 31 53 PM" src="https://github.com/user-attachments/assets/c9f6aa51-67db-4b57-9c8e-0e2e8b8809b2" />|
-|<img width="2894" height="324" alt="Screenshot 2026-05-11 at 12 29 51 PM" src="https://github.com/user-attachments/assets/500fb68a-f4c9-487f-9f6a-714e6636c321" />|
+|<img width="2940" height="1692" alt="Screenshot 2026-05-11 at 12 29 59 PM" src="https://github.com/user-attachments/assets/deb37e14-9560-4acd-84d9-bb447f42f397" />|
 
 ## Support Development
 
