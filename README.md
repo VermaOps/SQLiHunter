@@ -438,7 +438,6 @@ chmod +x build.sh
 
 ## Screenshots
 
-| | | |
 |:---:|:---:|:---:|
 | *Main Dashboard* | *Traffic Analysis* | *Findings Table* |
 | *Settings Panel* | *AI Report Generation* | *Evidence Details* |
