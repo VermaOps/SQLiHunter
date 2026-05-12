@@ -1,6 +1,9 @@
 [![Burp Suite Extension](https://img.shields.io/badge/Burp%20Suite-Extension-orange)](https://portswigger.net/burp)
 [![Version](https://img.shields.io/badge/Version-1.0.0-blue)](https://github.com/VermaOps/SQLiHunter/releases)
 [![Java](https://img.shields.io/badge/Java-21+-red)](https://www.oracle.com/java/)
+[![Ollama](https://img.shields.io/badge/Ollama-Supported-yellow)](https://ollama.com)
+[![OpenAI](https://img.shields.io/badge/OpenAI-Supported-green)](https://openai.com)
+[![Claude](https://img.shields.io/badge/Claude-Supported-purple)](https://anthropic.com)
 
 # SQLiHunter: Automated SQL Injection Detection for Burp Suite
 
